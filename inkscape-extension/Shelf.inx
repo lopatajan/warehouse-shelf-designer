@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Warehouse Shelf Designer</name>
+    <id>com.rohlikgroup.inkscape.extension.shelf</id>
+    <dependency type="executable" location="inx">Shelf.py</dependency>
+    <param name="tab" type="notebook">
+        <page name="tab_shelf" gui-text="Shelf">
+            <param name="cols" type="int" min="1" max="100" gui-text="Shelf count:">5</param>
+            <param name="facing_width" type="int" min="1" max="1000" gui-text="Facing width:">50</param>
+            <param name="shelf_depth" type="int" min="1" max="1000" gui-text="Shelf depth:">80</param>
+            <param name="name" type="string" gui-text="Name:">1A</param>
+            <param name="layout_and_side" type="optiongroup" gui-text="Layout and facing side:">
+                <option value="R-U">Left to right, facing Up</option>
+                <option value="R-D">Left to right, facing Down</option>
+                <option value="L-U">Right to left, facing Up</option>
+                <option value="L-D">Right to left, facing Down</option>
+                <option value="D-L">Top to bottom, facing Left</option>
+                <option value="D-R">Top to bottom, facing Right</option>
+                <option value="U-L">Bottom to top, facing Left</option>
+                <option value="U-R">Bottom to top, facing Right</option>
+            </param>
+            <param name="start" type="int" max="100" gui-text="Start number:">1</param>
+            <param name="diff" type="int" min="1" gui-text="Step:">1</param>
+        </page>
+        <page name="tab_special" gui-text="Special Object">
+            <param name="object_type" type="optiongroup" gui-text="Object type:">
+                <option value="WALL">WALL (blue)</option>
+                <option value="START">START (green)</option>
+                <option value="END">END (red)</option>
+            </param>
+            <param name="obj_width" type="float" min="0.1" max="1000" gui-text="Width:">10</param>
+            <param name="obj_height" type="float" min="0.1" max="1000" gui-text="Height:">10</param>
+        </page>
+    </param>
+    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Warehouse Designer"/>
+        </effects-menu>
+    </effect>
+    <menu-tip>Generate warehouse shelf label diagrams</menu-tip>
+    <script>
+        <command location="inx" interpreter="python">Shelf.py</command>
+    </script>
+</inkscape-extension>
